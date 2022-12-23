@@ -1,0 +1,35 @@
+<div *ngIf="searchInputValue">
+  <div class="container-sm mt-5">
+    <div class="row mt-5">
+      <div
+        class="col-sm"
+        *ngFor="let product of products | filter : searchInputValue"
+      >
+        <div class="card mt-1 mb-3" style="width: 18rem">
+          <img
+            src="{{ product.photoUrl }}"
+            class="card-img-top"
+            alt="{{ product.defination }}"
+            style="height: 16rem"
+          />
+          <div class="card-body">
+            <hr />
+            <h5 class="card-title">{{ product.productName }}</h5>
+            <p class="card-text">{{ product.defination }}</p>
+            <p class="cart-text">
+              {{ product.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ product.categoryId }}/products/{{
+                product.id
+              }}"
+              class="btn btn-primary d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

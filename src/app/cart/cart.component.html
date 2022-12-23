@@ -1,0 +1,92 @@
+<div class="container-sm mt-5" *ngIf="currentCustomer">
+  <h3>My Cart</h3>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group" *ngFor="let item of carts">
+            <li
+              class="list-group-item"
+              *ngIf="item.isDelivered == false && item.isOnWay == false"
+            >
+              <img
+                class="float-start"
+                style="width: 300px"
+                src="{{ item.photoUrl }}"
+              />
+
+              <h5>{{ item.productName }}</h5>
+              <p>Unit Price : {{ item.price | currency : "TRY" : "TL" }}</p>
+              <p>Unit: {{ item.quantity }}</p>
+              <p>
+                Sum :
+                {{ item.price * item.quantity | currency : "TRY" : "TL" }}
+              </p>
+              <button
+                class="btn btn-success"
+                style="width: 3rem"
+                (click)="
+                  increaseQty(
+                    item?.id,
+                    item?.quantity,
+                    item?.isDelivered,
+                    item?.isOnWay,
+                    item?.price,
+                    item?.productName,
+                    item?.photoUrl
+                  )
+                "
+              >
+                +
+              </button>
+              <button
+                *ngIf="item.quantity > 0"
+                class="btn btn-danger"
+                style="width: 3rem"
+                (click)="
+                  decreaseQty(
+                    item?.id,
+                    item?.quantity,
+                    item?.isDelivered,
+                    item?.isOnWay,
+                    item?.price,
+                    item?.productName,
+                    item?.photoUrl
+                  )
+                "
+              >
+                -
+              </button>
+              <button
+                *ngIf="item.quantity <= 0"
+                class="btn btn-warning"
+                (click)="removeItem(item.id)"
+              >
+                Remove
+              </button>
+            </li>
+          </ul>
+
+          <div class="d-flex">
+            <p class="me-auto p-2">Sum : {{ sum | currency : "TRY" : "TL" }}</p>
+            <button
+              class="btn btn-danger float-end p-2 mt-1"
+              style="width: 8rem"
+              (click)="emptyCart()"
+            >
+              Empty cart
+            </button>
+            <button
+              style="width: 8rem"
+              class="btn btn-success float-end p-2 mt-1 ms-1"
+              (click)="confirmCart()"
+            >
+              Approve cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!currentCustomer"><app-loginPage></app-loginPage></div>

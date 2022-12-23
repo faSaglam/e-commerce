@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <div class="card" *ngIf="is1200 == false">
+    <div class="row">
+      <div class="col-6 p-3">
+        <img
+          src="{{ product?.photoUrl }}"
+          style="height: 450px; width: 500px"
+        />
+        <hr />
+        <p>{{ product?.defination }}</p>
+      </div>
+      <div class="col-6">
+        <div style="height: 20rem; width: 100%; background-color: antiquewhite">
+          <div style="margin: 0px 0px 0px 20px; padding-top: 20px">
+            <h3>
+              {{ product?.productName }}
+            </h3>
+            <h6 class="mt-5">Features:{{ product?.defination }}</h6>
+            <a
+              *ngIf="isExist"
+              routerLink="/cart/{{ customerId }}"
+              class="btn btn-success btn-lg mt-5"
+              (click)="
+                addItemToCart(
+                  product?.id,
+                  1,
+                  product?.photoUrl,
+                  product?.productName,
+                  product?.unitPrice,
+                  customerId
+                )
+              "
+              >Add to cart</a
+            >
+            <button *ngIf="isExist == false" class="btn btn-danger" disabled>
+              Ürün stokta yok
+            </button>
+          </div>
+        </div>
+        <div
+          style="
+            width: 100%;
+            height: 25rem;
+
+            background-color: rgba(148, 223, 251, 0.825);
+          "
+        >
+          <h3 style="margin: 0px 0px 0px 20px; padding-top: 20px">
+            Seller Name:{{ product?.sellerName }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="max-width: 900px" *ngIf="is1200 == true">
+    <div class="row">
+      <div class="col-5">
+        <img
+          class="img-fluid rounded-start border-end"
+          src="{{ product?.photoUrl }}"
+          style="min-height: 12rem; width: auto; max-height: 14rem"
+        />
+      </div>
+      <div class="col-7">
+        <h3 class="mt-3">{{ product?.productName }}</h3>
+        <p class="mt-3">{{ product?.defination }}</p>
+        <p class="mt-3">{{ product?.unitPrice | currency : "TRY" : "TL" }}</p>
+
+        <a
+          *ngIf="isExist == true"
+          routerLink="/cart/{{ customerId }}"
+          class="btn btn-success"
+          (click)="
+            addItemToCart(
+              product?.id,
+              1,
+              product?.photoUrl,
+              product?.productName,
+              product?.unitPrice,
+              customerId
+            )
+          "
+          >Add to cart
+        </a>
+        <button *ngIf="isExist == false" class="btn btn-danger" disabled>
+          Ürün stokta yok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

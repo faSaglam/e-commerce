@@ -1,0 +1,70 @@
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">Product Image</th>
+      <th scope="col">Product Id</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Operation</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of products">
+    <tr class="text-center">
+      <td>
+        <img
+          style="width: 4rem; max-height: 70px"
+          src="{{ product.photoUrl }}"
+          routerLink="/category/{{ product.categoryId }}/products/{{
+            product.id
+          }}"
+        />
+      </td>
+      <td
+        routerLink="/category/{{ product.categoryId }}/products/{{
+          product.id
+        }}"
+      >
+        <p>{{ product.id }}</p>
+      </td>
+      <td
+        routerLink="/category/{{ product.categoryId }}/products/{{
+          product.id
+        }}"
+      >
+        {{ product.productName }}
+      </td>
+      <td
+        routerLink="/category/{{ product.categoryId }}/products/{{
+          product.id
+        }}"
+      >
+        {{ product.stock }}
+      </td>
+      <td
+        routerLink="/category/{{ product.categoryId }}/products/{{
+          product.id
+        }}"
+      >
+        {{ product.unitPrice }}
+      </td>
+      <td class="d-grid gap-2 mx-auto">
+        <button
+          class="btn btn-outline-dark btn-sm mt-1"
+          type="button"
+          (click)="updateProduct(product)"
+        >
+          Update
+        </button>
+
+        <button
+          class="btn btn-outline-dark btn-sm"
+          type="button"
+          (click)="deleteProduct(product.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

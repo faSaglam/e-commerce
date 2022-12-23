@@ -1,0 +1,131 @@
+<main role="main">
+  <div class="container mt-5">
+    <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="add()">
+      <div class="mb-3">
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+          placeholder="Name"
+          autofocus
+        />
+        <span
+          *ngIf="
+            registerForm.get('name')?.invalid &&
+            registerForm.get('name')?.touched &&
+            registerForm.get('name')?.errors
+          "
+          class="error"
+          style="color: red"
+        >
+          *Name is required and must be at least 4 characters
+        </span>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          id="address"
+          formControlName="address"
+          class="form-control"
+          placeholder="Address"
+          autofocus
+        />
+        <span
+          *ngIf="
+            registerForm.get('address')?.invalid &&
+            registerForm.get('address')?.touched
+          "
+          class="error"
+          style="color: red"
+        >
+          *Adress is required
+        </span>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          id="payment"
+          formControlName="payment"
+          class="form-control"
+          placeholder="Payment !!!DONT USE REAL PAYMENT METHOD IT IS A DUMMY WEBSITE!!!"
+          autofocus
+        />
+        <span
+          *ngIf="
+            registerForm.get('payment')?.invalid &&
+            registerForm.get('payment')?.touched
+          "
+          class="error"
+          style="color: red"
+        >
+          *Payment method is required
+        </span>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email !!!DO NOT USE REAL E-MAİL ADDRESS IT IS A DUMMY WEBSITE!!!"
+          autofocus="false"
+        />
+        <span
+          *ngIf="
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.errors &&
+            registerForm.get('email')?.touched
+          "
+          class="error"
+          style="color: red"
+        >
+          *Email method is required and must be in pattern of an email
+        </span>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          id="userName"
+          formControlName="userName"
+          class="form-control"
+          placeholder="UserName"
+          autofocus="false"
+        />
+        <span
+          *ngIf="
+            registerForm.get('userName')?.invalid &&
+            registerForm.get('userName')?.errors &&
+            registerForm.get('userName')?.touched
+          "
+          class="error"
+          style="color: red"
+        >
+          *User name is required and must be at least 6 characters
+        </span>
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Password"
+          autofocus="false"
+        />
+        <p
+          *ngIf="
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.errors &&
+            registerForm.get('password')?.touched
+          "
+          class="error"
+          style="color: red"
+        >
+          *Password is required and must be at least 6 characters
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</main>

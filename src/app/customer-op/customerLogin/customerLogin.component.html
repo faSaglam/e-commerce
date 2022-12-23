@@ -1,0 +1,33 @@
+<main role="main ">
+  <div class="container">
+    <form (ngSubmit)="login()">
+      <div class="mb-3">
+        <input
+          type="text"
+          id="userName1"
+          [(ngModel)]="loginCustomer.userName"
+          class="form-control"
+          name="userName"
+          placeholder="UserName"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          id="password1"
+          [(ngModel)]="loginCustomer.password"
+          class="form-control"
+          name="password"
+          placeholder="Password"
+          autocomplete="on"
+        />
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto text-center">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-text">
+          <a routerLink="/customer/register">Register</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

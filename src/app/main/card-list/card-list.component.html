@@ -1,0 +1,265 @@
+<div class="container-md mt-5">
+  <div *ngIf="isMobileLayout == false">
+    <!-- Electronic -->
+    <div class="row mt-5">
+      <h3 *ngIf="electronics.length > 0">Electronic</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let electronic of electronics">
+        <div class="card mb-1 mx-auto" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ electronic.photoUrl }}"
+            class="card-img-top"
+            alt="{{ electronic.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ electronic.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ electronic.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ electronic.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ electronic.categoryId }}/products/{{
+                electronic.id
+              }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Book -->
+    <div class="row mt-5">
+      <h3 *ngIf="books.length">Books</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let book of books">
+        <div class="card mb-1" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ book.photoUrl }}"
+            class="card-img-top"
+            alt="{{ book.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ book.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ book.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ book.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ book.categoryId }}/products/{{
+                book.id
+              }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sports -->
+    <div class="row mt-5">
+      <h3 *ngIf="sports.length > 0">Sport</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let sport of sports">
+        <div class="card mb-1" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ sport.photoUrl }}"
+            class="card-img-top"
+            alt="{{ sport.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ sport.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ sport.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ sport.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ sport.categoryId }}/products/{{
+                sport.id
+              }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hoby -->
+    <div class="row mt-5">
+      <h3 *ngIf="hobies.length > 0">Hoby</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let hoby of hobies">
+        <div class="card mb-1" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ hoby.photoUrl }}"
+            class="card-img-top"
+            alt="{{ hoby.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ hoby.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ hoby.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ hoby.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ hoby.categoryId }}/products/{{
+                hoby.id
+              }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pet -->
+    <div class="row mt-5">
+      <h3 *ngIf="pets.length > 0">Pets</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let pet of pets">
+        <div class="card mb-1" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ pet.photoUrl }}"
+            class="card-img-top"
+            alt="{{ pet.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ pet.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ pet.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ pet.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ pet.categoryId }}/products/{{ pet.id }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Home -->
+    <div class="row mt-5">
+      <h3 *ngIf="homes.length > 0">Home</h3>
+      <div class="col-xl-2 col-md-4" *ngFor="let home of homes">
+        <div class="card mb-1" style="width: 12rem; height: 18rem">
+          <img
+            src="{{ home.photoUrl }}"
+            class="card-img-top"
+            alt="{{ home.defination }}"
+            style="width: 8rem; height: 10rem; margin: auto"
+          />
+          <div class="card-body p-1">
+            <hr class="m-1" />
+            <h5 class="card-title" style="font-weight: 500; font-size: small">
+              {{ home.productName }}
+            </h5>
+            <p
+              class="card-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ home.defination }}
+            </p>
+            <p
+              class="cart-text mb-1"
+              style="font-weight: 400; font-size: small"
+            >
+              {{ home.unitPrice | currency : "TRY" : "TL" }}
+            </p>
+
+            <a
+              routerLink="/category/{{ home.categoryId }}/products/{{
+                home.id
+              }}"
+              class="btn btn-primary btn-sm d-grid gap"
+              >Ürüne git</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isMobileLayout == true">
+    <div *ngFor="let c of categories">
+      <div class="card m-2 mx-auto" style="height: 5rem; width: 80%">
+        <a
+          class="card-title my-auto mx-4"
+          routerLink="/category/{{ c.id }}"
+          style="text-decoration: none; color: black"
+        >
+          <h3>
+            <fa-icon *ngIf="c.id == 1" [icon]="faLaptop"></fa-icon>
+            <fa-icon *ngIf="c.id == 2" [icon]="faBook"></fa-icon>
+            <fa-icon *ngIf="c.id == 3" [icon]="faDumbbell"></fa-icon>
+            <fa-icon *ngIf="c.id == 4" [icon]="faPalette"></fa-icon>
+            <fa-icon *ngIf="c.id == 5" [icon]="faPaw"></fa-icon>
+            <fa-icon *ngIf="c.id == 6" [icon]="faMugSaucer"></fa-icon>
+
+            {{ c.categoryName }}
+          </h3></a
+        >
+      </div>
+    </div>
+  </div>
+</div>

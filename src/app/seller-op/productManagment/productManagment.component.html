@@ -1,0 +1,31 @@
+<main class="container-lg mt-5" *ngIf="currentSeller">
+  <div class="row">
+    <div class="col-lg-4 col-12 mb-3">
+      <div class="card">
+        <ul class="list-group list-group-flash">
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="fw-bold">Stock Control</div>
+
+            <button
+              style="width: 6rem"
+              class="btn btn-success ms-auto"
+              (click)="stock()"
+            >
+              Stock
+            </button>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="fw-bold">Add new product</div>
+            <button style="width: 6rem" class="btn btn-success" (click)="add()">
+              Add
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-8 col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
+<div *ngIf="!currentSeller"><app-loginPage></app-loginPage></div>

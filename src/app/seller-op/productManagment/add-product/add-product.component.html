@@ -1,0 +1,113 @@
+<main role="main">
+  <div class="container">
+    <form
+      *ngIf="productAddForm"
+      [formGroup]="productAddForm"
+      (ngSubmit)="add()"
+    >
+      <div class="row mb-1">
+        <label for="productName" class="col-sm-2"
+          ><span class="fw-bold">Product Name</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="productName"
+            formControlName="productName"
+            class="form-control"
+            placeholder="Product Name"
+            autofocus
+          />
+        </div>
+      </div>
+      <div class="row mb-1">
+        <label for="stock" class="col-sm-2"
+          ><span class="fw-bold">Stock</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="number"
+            id="stock"
+            formControlName="stock"
+            class="form-control"
+            placeholder="stock"
+            autofocus
+          />
+        </div>
+      </div>
+      <div class="row mb-1">
+        <label for="unitPrice" class="col-sm-2"
+          ><span class="fw-bold">Unit Price</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="number"
+            id="unitPrice"
+            formControlName="unitPrice"
+            class="form-control"
+            placeholder="Unit Price"
+          />
+        </div>
+      </div>
+
+      <div class="row mb-1">
+        <label for="photoUrl" class="col-sm-2"
+          ><span class="fw-bold">Photo Url</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="photoUrl"
+            formControlName="photoUrl"
+            class="form-control"
+            placeholder="Photo Url"
+          />
+        </div>
+      </div>
+      <div class="row mb-1">
+        <label for="defination" class="col-sm-2"
+          ><span class="fw-bold">Defination</span></label
+        >
+        <div class="col-sm-9">
+          <textarea
+            type="text"
+            id="defination"
+            formControlName="defination"
+            class="form-control"
+            placeholder="Defination"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <label for="categoryId" class="col-sm-2"
+          ><span class="fw-bold">Category</span></label
+        >
+        <div class="col-sm-9">
+          <select
+            class="form-select"
+            aria-label="Select a category"
+            id="categoryId"
+            formControlName="categoryId"
+            ngModel="1"
+          >
+            <option selected value="1">Elektronic</option>
+            <option value="2">Book</option>
+            <option value="3">Sport</option>
+            <option value="4">Hobby</option>
+            <option value="5">Pet</option>
+            <option value="6">Home</option>
+          </select>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn btn-primary mx-auto"
+          style="width: 400px"
+        >
+          Add product
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

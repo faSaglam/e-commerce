@@ -1,0 +1,11 @@
+<div class="contianer-sm text-center bg-light">
+  <div class="row">
+    <div *ngFor="let category of categories" class="col">
+      <a
+        routerLink="/category/{{ category.id }}"
+        style="text-decoration: none; color: black"
+        >{{ category.categoryName }}</a
+      >
+    </div>
+  </div>
+</div>

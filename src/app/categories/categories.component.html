@@ -1,0 +1,79 @@
+<div class="container mt-5 mx-auto">
+  <div class="row">
+    <div class="col-6">
+      <h3 style="font-size: 2rem">{{ category?.categoryName }}</h3>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+      <fa-icon [icon]="faSort"></fa-icon>
+    </div>
+    <div class="col-4 d-flex align-items-center">
+      <select class="form-select" id="sort" (change)="sort($event)">
+        <option value="Sort">Sort products</option>
+        <option value="Low">Sort products by ascending price</option>
+        <option value="High">Sort products by decreasing price</option>
+        <option value="Name">Sort products by name</option>
+      </select>
+    </div>
+
+    <hr class="mt-3" />
+  </div>
+  <div *ngIf="is990 == false" class="row">
+    <div class="col-xl-3 col-md-4" *ngFor="let product of products">
+      <div class="card mt-1 mb-3" style="width: 18rem">
+        <img
+          src="{{ product.photoUrl }}"
+          class="card-img-top"
+          alt="{{ product.defination }}"
+          style="height: 16rem"
+        />
+        <div class="card-body">
+          <hr />
+          <h5 class="card-title">{{ product.productName }}</h5>
+          <p class="card-text">{{ product.defination }}</p>
+          <p class="cart-text">
+            {{ product.unitPrice | currency : "TRY" : "TL" }}
+          </p>
+
+          <a
+            routerLink="/category/{{ category?.id }}/products/{{ product.id }}"
+            class="btn btn-primary d-grid gap"
+            >Go to the product
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="is990 == true">
+    <div class="col" *ngFor="let product of products">
+      <div class="card mt-1 mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-5">
+            <img
+              src="{{ product.photoUrl }}"
+              class="img-fluid rounded-start border-end border-2"
+              alt="{{ product.defination }}"
+              style="height: 14rem; min-width: 12rem"
+            />
+          </div>
+          <div class="col-7">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.productName }}</h5>
+              <p class="card-text">{{ product.defination }}</p>
+              <p class="card-text">
+                {{ product.unitPrice | currency : "TRY" : "TL" }}
+              </p>
+
+              <a
+                routerLink="/category/{{ category?.id }}/products/{{
+                  product.id
+                }}"
+                class="btn btn-primary d-grid gap"
+                >Go to the product</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
